@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vlmwing"
+version = "1.0.0"
+description = "Vortex lattice method for the aerodynamic analysis and stall-pattern design of swept, tapered, twisted wings"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Lucas García Franco" },
+    { name = "Carlos Pesquero Cañizares" },
+]
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.22", "matplotlib>=3.5"]
+keywords = ["aerodynamics", "vortex lattice method", "VLM", "wing", "aerospace"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.5", "nbclient>=0.7", "ipykernel"]
+
+[project.scripts]
+vlmwing = "vlmwing.cli:main"
+
+[project.urls]
+Repository = "https://github.com/CPesquero/vlm-wing-aerodynamics"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"vlmwing.data" = ["*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 110
+target-version = "py39"
+extend-exclude = ["*.md"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "NPY"]
+ignore = ["E741"]
+
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*" = ["E402"]
