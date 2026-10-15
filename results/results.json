@@ -1,0 +1,168 @@
+{
+  "geometry": {
+    "span_m": 3.873,
+    "root_chord_m": 0.313,
+    "tip_chord_m": 0.203,
+    "taper": 0.648562,
+    "aspect_ratio": 15.011628,
+    "sweep_c4_deg": 12.0,
+    "sweep_le_deg": 12.776189,
+    "mac_m": 0.261908,
+    "x_ac_m": 0.269433,
+    "y_ac_m": 0.899447,
+    "camber_slope_3c4": -0.051562
+  },
+  "lift": {
+    "CL_alpha_per_deg": 0.093234,
+    "CL_at_alpha0": 0.068337,
+    "alpha_L0_deg": -0.732965
+  },
+  "polar": {
+    "alpha_deg": [
+      -12.0,
+      -6.0,
+      0.0,
+      6.0,
+      12.0
+    ],
+    "CL": [
+      -1.050466,
+      -0.491065,
+      0.068337,
+      0.627738,
+      1.18714
+    ],
+    "CDi": [
+      0.025114,
+      0.006348,
+      0.000701,
+      0.008172,
+      0.028762
+    ],
+    "CM_origin": [
+      1.115042,
+      0.544728,
+      -0.025586,
+      -0.595899,
+      -1.166213
+    ],
+    "CM_ac": [
+      0.034394,
+      0.039554,
+      0.044715,
+      0.049875,
+      0.055035
+    ]
+  },
+  "xflr5": {
+    "mean_cl_offset": [
+      0.199882,
+      0.234571,
+      0.240944,
+      0.243104,
+      0.265339
+    ],
+    "CL_alpha_per_deg": 0.090908
+  },
+  "mesh_convergence": [
+    {
+      "n_panels": 4,
+      "CL": 0.639378,
+      "seconds": 0.000141
+    },
+    {
+      "n_panels": 10,
+      "CL": 0.633622,
+      "seconds": 0.00016
+    },
+    {
+      "n_panels": 20,
+      "CL": 0.627738,
+      "seconds": 0.000184
+    },
+    {
+      "n_panels": 40,
+      "CL": 0.623231,
+      "seconds": 0.000302
+    },
+    {
+      "n_panels": 80,
+      "CL": 0.620721,
+      "seconds": 0.000746
+    },
+    {
+      "n_panels": 120,
+      "CL": 0.619869,
+      "seconds": 0.002136
+    },
+    {
+      "n_panels": 160,
+      "CL": 0.619441,
+      "seconds": 0.00359
+    },
+    {
+      "n_panels": 320,
+      "CL": 0.618796,
+      "seconds": 0.014888
+    }
+  ],
+  "optimization": {
+    "n_feasible": 1529,
+    "baseline": {
+      "onset": 0.25,
+      "gradient": -0.069077
+    },
+    "top": [
+      {
+        "airfoil": "0012",
+        "aspect_ratio": 11.5,
+        "sweep_c4_deg": 3.0,
+        "taper": 1.0,
+        "tip_twist_deg": -8.0,
+        "onset": 0.05,
+        "gradient": -0.200077,
+        "cost": 1.127319
+      },
+      {
+        "airfoil": "0012",
+        "aspect_ratio": 13.5,
+        "sweep_c4_deg": 5.0,
+        "taper": 1.0,
+        "tip_twist_deg": -9.0,
+        "onset": 0.05,
+        "gradient": -0.200375,
+        "cost": 1.133156
+      },
+      {
+        "airfoil": "0012",
+        "aspect_ratio": 11.0,
+        "sweep_c4_deg": 3.0,
+        "taper": 1.0,
+        "tip_twist_deg": -8.0,
+        "onset": 0.05,
+        "gradient": -0.200675,
+        "cost": 1.134698
+      },
+      {
+        "airfoil": "0012",
+        "aspect_ratio": 13.0,
+        "sweep_c4_deg": 5.0,
+        "taper": 1.0,
+        "tip_twist_deg": -9.0,
+        "onset": 0.05,
+        "gradient": -0.200809,
+        "cost": 1.1366
+      },
+      {
+        "airfoil": "0012",
+        "aspect_ratio": 12.5,
+        "sweep_c4_deg": 5.0,
+        "taper": 1.0,
+        "tip_twist_deg": -9.0,
+        "onset": 0.05,
+        "gradient": -0.201295,
+        "cost": 1.141007
+      }
+    ]
+  }
+}

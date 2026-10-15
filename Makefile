@@ -1,5 +1,35 @@
-install:
-	pip install -r requirements.txt
+.PHONY: install dev test lint format figures reproduce report notebook clean
 
-run:
-	jupyter notebook notebooks/analisis_vlm.ipynb
+install:            ## install the package
+	pip install .
+
+dev:                ## editable install with test and lint tools
+	pip install -e ".[dev]"
+
+test:               ## run the test suite
+	pytest
+
+lint:               ## static checks
+	ruff check .
+	ruff format --check .
+
+format:             ## auto-format
+	ruff format .
+	ruff check --fix .
+
+figures:            ## regenerate every figure in figures/ and results/results.json
+	vlmwing --figures-dir figures --json results/results.json
+
+reproduce: figures  ## alias
+
+report:             ## rebuild docs/vlm_aerodynamics_report.pdf (needs pdflatex)
+	python docs/report/make_figures.py
+	cd docs/report && pdflatex -interaction=nonstopmode report.tex && pdflatex -interaction=nonstopmode report.tex
+	cp docs/report/report.pdf docs/vlm_aerodynamics_report.pdf
+
+notebook:           ## open the walkthrough notebook
+	jupyter notebook notebooks/vlm_analysis.ipynb
+
+clean:
+	rm -rf build dist *.egg-info src/*.egg-info .pytest_cache .ruff_cache
+	find . -name __pycache__ -type d -prune -exec rm -rf {} +
