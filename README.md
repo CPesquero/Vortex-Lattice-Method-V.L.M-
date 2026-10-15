@@ -24,7 +24,7 @@ The spanwise lift distribution at five angles of attack, including the central d
 | Mesh convergence | C<sub>L</sub> changes by < 0.5 % from 80 panels onward |
 | Stall redesign | c<sub>l</sub> peak at 5 % of the semispan, dc<sub>l</sub>/dy = −0.200 m⁻¹ |
 
-Every number is produced by `vlmwing` (see [Reproducing the results](#reproducing-the-results)) and checked by the test suite. The baseline numbers match the report in [`docs/`](docs/). Sections 8–10 of the report differ; see [Corrections to the original analysis](#corrections-to-the-original-analysis).
+Every number is produced by `vlmwing` (see [Reproducing the results](#reproducing-the-results)) and checked by the test suite. They match the revised report in [`docs/`](docs/vlm_aerodynamics_report.pdf); see [Corrections to the original analysis](#corrections-to-the-original-analysis) for what changed from the first edition.
 
 ## Quick start
 
@@ -171,7 +171,7 @@ Reading the result: the search drives sweep down and taper up, because both move
 
 ## Corrections to the original analysis
 
-Refactoring the notebook into a tested package exposed two problems in sections 8–10 of the original code. Both are fixed here, so those results differ from the PDF report:
+Refactoring the notebook into a tested package exposed two problems in sections 9–10 of the original code and report. Both are fixed here and in the revised edition of the report (October 2026):
 
 1. **Wrong sweep in validation, mesh study and optimization.** Those cells used a hard-coded 20° leading-edge sweep instead of the baseline's 12° quarter-chord sweep (12.78° at the leading edge). They analysed a different wing. With the correct geometry the mesh study reproduces the report's table (C<sub>L</sub> = 0.639 → 0.620).
 2. **Area not held constant in the optimization.** The root chord was fixed while the span changed, so the wing area drifted away from 1 m² and the reported aspect ratio (b²/1 m²) was not the real one. The search now builds each wing at constant area.
@@ -213,14 +213,14 @@ tests/              pytest suite
 notebooks/          step-by-step walkthrough
 figures/            generated figures
 results/            generated numbers (JSON)
-docs/               original report (PDF)
+docs/               report (PDF) and its LaTeX source in docs/report/
 ```
 
 ## Documentation
 
 | Document | What it is |
 |---|---|
-| [`docs/vlm_aerodynamics_report.pdf`](docs/vlm_aerodynamics_report.pdf) | The original report: derivations, tables, figures and conclusions |
+| [`docs/vlm_aerodynamics_report.pdf`](docs/vlm_aerodynamics_report.pdf) | The report (revised edition): derivations, tables, figures and conclusions. Rebuild with `make report` |
 | [`notebooks/vlm_analysis.ipynb`](notebooks/vlm_analysis.ipynb) | Walkthrough of the study with the package |
 | [`CHANGELOG.md`](CHANGELOG.md) | What changed from the original notebook |
 

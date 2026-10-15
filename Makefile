@@ -1,4 +1,4 @@
-.PHONY: install dev test lint format figures reproduce notebook clean
+.PHONY: install dev test lint format figures reproduce report notebook clean
 
 install:            ## install the package
 	pip install .
@@ -21,6 +21,11 @@ figures:            ## regenerate every figure in figures/ and results/results.j
 	vlmwing --figures-dir figures --json results/results.json
 
 reproduce: figures  ## alias
+
+report:             ## rebuild docs/vlm_aerodynamics_report.pdf (needs pdflatex)
+	python docs/report/make_figures.py
+	cd docs/report && pdflatex -interaction=nonstopmode report.tex && pdflatex -interaction=nonstopmode report.tex
+	cp docs/report/report.pdf docs/vlm_aerodynamics_report.pdf
 
 notebook:           ## open the walkthrough notebook
 	jupyter notebook notebooks/vlm_analysis.ipynb

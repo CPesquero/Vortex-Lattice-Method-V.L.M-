@@ -13,7 +13,7 @@ from .solver import (
 )
 from .validation import XFLR5_ALPHAS, load_xflr5, mesh_convergence
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 __all__ = [
     "BASELINE",

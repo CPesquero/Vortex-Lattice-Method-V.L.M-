@@ -6,7 +6,7 @@ authors:
     given-names: "Lucas"
   - family-names: "Pesquero Cañizares"
     given-names: "Carlos"
-version: 1.0.0
+version: 1.1.0
 date-released: 2026-10-15
 license: MIT
 repository-code: "https://github.com/CPesquero/vlm-wing-aerodynamics"
